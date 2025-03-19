@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -45,8 +49,39 @@ public class PermissionRepositoryTest extends AbstractIntegrationTest {
         permissionFound.setName("READ_USER_2");
         //When / Act
         repository.save(permissionFound);
-        // Then / Act
+        // Then / Assert
         assertNotNull(permissionFound);
         assertEquals("READ_USER_2", permissionFound.getName());
+    }
+
+    @DisplayName("Given Permission List when List All then Return List")
+    @Test
+    void testGivenPermissionList_whenListAll_thenReturnList(){
+        //Given / Arrange
+        repository.save(permissionEntity);
+        PermissionEntity p1 = new PermissionEntity("CREATE_USER");
+        PermissionEntity p2 = new PermissionEntity("DELETE_USER");
+        repository.save(p1);
+        repository.save(p2);
+        // When / Act
+        List<PermissionEntity> permissionEntityList = repository.findAll();
+        //Then / Assert
+        assertNotNull(permissionEntity);
+        assertNotNull(p1);
+        assertNotNull(p2);
+        assertNotNull(permissionEntityList);
+        assertEquals(3, permissionEntityList.size());
+    }
+
+    @DisplayName("Given Permission Object when delete by id remove it")
+    @Test
+    void testGivenPermissionObject_whenDeleteById_thenRemoveIt(){
+        // Given / Arrange
+        repository.save(permissionEntity);
+        //When / Act
+        repository.deleteById(permissionEntity.getId());
+        Optional<PermissionEntity> permissionEntityOptional = repository.findById(permissionEntity.getId());
+        // Then / Assert
+        assertTrue(permissionEntityOptional.isEmpty());
     }
 }
