@@ -10,8 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest(showSql = true)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -35,5 +34,19 @@ public class PermissionRepositoryTest extends AbstractIntegrationTest {
         //Then / Assert
         assertNotNull(permission);
         assertTrue(permission.getId() > 0);
+    }
+
+    @DisplayName("Given a name Permission when Permission name to update then Return Permission name")
+    @Test
+    void testGivenNamePermission_whenPermissionNameToUpdate_thenReturnPermissionName(){
+        // Given / Arrange
+        repository.save(permissionEntity);
+        PermissionEntity permissionFound = repository.findById(permissionEntity.getId()).get();
+        permissionFound.setName("READ_USER_2");
+        //When / Act
+        repository.save(permissionFound);
+        // Then / Act
+        assertNotNull(permissionFound);
+        assertEquals("READ_USER_2", permissionFound.getName());
     }
 }

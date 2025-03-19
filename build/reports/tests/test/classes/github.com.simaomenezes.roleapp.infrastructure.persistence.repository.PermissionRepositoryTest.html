@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.601s</div>
+<div class="counter">0.556s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,9 +79,9 @@
 </tr>
 </thead>
 <tr>
-<td class="success">Given Permission Object when Save then Return Saved Permission</td>
-<td class="success">testGivenPermissionObject_whenSave_thenReturnSavedPermissionObject()</td>
-<td class="success">0.601s</td>
+<td class="success">Given a name Permission when Permission name to update then Return Permission name</td>
+<td class="success">testGivenNamePermission_whenPermissionNameToUpdate_thenReturnPermissionName()</td>
+<td class="success">0.556s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -89,31 +89,31 @@
 <div class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>20:24:54.312 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [github.com.simaomenezes.roleapp.infrastructure.persistence.repository.PermissionRepositoryTest]: PermissionRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-20:24:54.487 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration github.com.simaomenezes.roleapp.AppRoleAuthApplication for test class github.com.simaomenezes.roleapp.infrastructure.persistence.repository.PermissionRepositoryTest
-20:24:54.558 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
-20:24:54.561 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
-20:24:54.571 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.5
-20:24:54.777 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
-20:24:55.076 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
-20:24:55.078 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
-20:24:55.098 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+<pre>21:03:26.714 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [github.com.simaomenezes.roleapp.infrastructure.persistence.repository.PermissionRepositoryTest]: PermissionRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:03:26.866 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration github.com.simaomenezes.roleapp.AppRoleAuthApplication for test class github.com.simaomenezes.roleapp.infrastructure.persistence.repository.PermissionRepositoryTest
+21:03:26.917 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+21:03:26.920 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+21:03:26.928 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.5
+21:03:27.087 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+21:03:27.379 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+21:03:27.380 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+21:03:27.398 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
   Server Version: 28.0.1
   API Version: 1.48
   Operating System: Docker Desktop
   Total Memory: 7562 MB
   Labels: 
     com.docker.desktop.address=npipe://\\.\pipe\docker_cli
-20:24:55.181 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Creating container for image: testcontainers/ryuk:0.11.0
-20:24:55.589 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 is starting: a58c3994d7ae40e2a878ddacb833f03d6270cb922bf1f1bcc2e1b77ebd459c9c
-20:24:56.058 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 started in PT0.8765323S
-20:24:56.065 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
-20:24:56.065 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
-20:24:56.066 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
-20:24:56.067 [Test worker] INFO tc.postgres:15 -- Creating container for image: postgres:15
-20:24:56.153 [Test worker] INFO tc.postgres:15 -- Container postgres:15 is starting: 3d03bf17714717089785364f36ea53ff1cbd504ee9c693724097bb864e86b7f8
-20:24:57.689 [Test worker] INFO tc.postgres:15 -- Container postgres:15 started in PT1.6218972S
-20:24:57.690 [Test worker] INFO tc.postgres:15 -- Container is started (JDBC URL: jdbc:postgresql://localhost:52953/test?loggerLevel=OFF)
+21:03:27.482 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Creating container for image: testcontainers/ryuk:0.11.0
+21:03:27.733 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 is starting: 1dad3cd7de0f764fba58990de4267eab6032258257caeaa70ca1bc0aacca8686
+21:03:28.180 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 started in PT0.6983807S
+21:03:28.187 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+21:03:28.187 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+21:03:28.188 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+21:03:28.189 [Test worker] INFO tc.postgres:15 -- Creating container for image: postgres:15
+21:03:28.275 [Test worker] INFO tc.postgres:15 -- Container postgres:15 is starting: 981360156ebd4467fbd095c23515e5c8d7b50e369cec509207267717ae00a10b
+21:03:29.775 [Test worker] INFO tc.postgres:15 -- Container postgres:15 started in PT1.5864205S
+21:03:29.776 [Test worker] INFO tc.postgres:15 -- Container is started (JDBC URL: jdbc:postgresql://localhost:53422/test?loggerLevel=OFF)
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -124,19 +124,19 @@
 
  :: Spring Boot ::                (v3.4.3)
 
-2025-03-19T20:24:58.137Z  INFO 24172 --- [    Test worker] g.c.s.r.i.p.r.PermissionRepositoryTest   : Starting PermissionRepositoryTest using Java 17.0.12 with PID 24172 (started by simao in C:\dev\projects-java\app-role-auth)
-2025-03-19T20:24:58.138Z  INFO 24172 --- [    Test worker] g.c.s.r.i.p.r.PermissionRepositoryTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2025-03-19T20:24:58.445Z  INFO 24172 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-03-19T20:24:58.505Z  INFO 24172 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
-2025-03-19T20:24:58.845Z  INFO 24172 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-03-19T20:24:58.926Z  INFO 24172 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
-2025-03-19T20:24:58.973Z  INFO 24172 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-03-19T20:24:59.318Z  INFO 24172 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-03-19T20:24:59.358Z  INFO 24172 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-03-19T20:24:59.549Z  INFO 24172 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@121dce2
-2025-03-19T20:24:59.551Z  INFO 24172 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-03-19T20:24:59.588Z  WARN 24172 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-03-19T20:24:59.611Z  INFO 24172 --- [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-03-19T21:03:30.147Z  INFO 32680 --- [    Test worker] g.c.s.r.i.p.r.PermissionRepositoryTest   : Starting PermissionRepositoryTest using Java 17.0.12 with PID 32680 (started by simao in C:\dev\projects-java\app-role-auth)
+2025-03-19T21:03:30.149Z  INFO 32680 --- [    Test worker] g.c.s.r.i.p.r.PermissionRepositoryTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-03-19T21:03:30.448Z  INFO 32680 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-19T21:03:30.502Z  INFO 32680 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interface.
+2025-03-19T21:03:30.825Z  INFO 32680 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-19T21:03:30.892Z  INFO 32680 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-19T21:03:30.942Z  INFO 32680 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-19T21:03:31.232Z  INFO 32680 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-19T21:03:31.267Z  INFO 32680 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-19T21:03:31.422Z  INFO 32680 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2e4339c1
+2025-03-19T21:03:31.424Z  INFO 32680 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-19T21:03:31.462Z  WARN 32680 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-19T21:03:31.486Z  INFO 32680 --- [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 15.12
@@ -144,16 +144,16 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-03-19T20:25:00.270Z  INFO 24172 --- [    Test worker] o.h.m.i.EntityInstantiatorPojoStandard   : HHH000182: No default (no-argument) constructor for class: github.com.simaomenezes.roleapp.infrastructure.persistence.entity.PermissionEntity (class must be instantiated by Interceptor)
-2025-03-19T20:25:00.431Z  INFO 24172 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-19T21:03:32.048Z  INFO 32680 --- [    Test worker] o.h.m.i.EntityInstantiatorPojoStandard   : HHH000182: No default (no-argument) constructor for class: github.com.simaomenezes.roleapp.infrastructure.persistence.entity.PermissionEntity (class must be instantiated by Interceptor)
+2025-03-19T21:03:32.184Z  INFO 32680 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     create table permission (
         id bigint generated by default as identity,
         name varchar(255),
         primary key (id)
     )
-2025-03-19T20:25:00.484Z  INFO 24172 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-03-19T20:25:00.802Z  INFO 24172 --- [    Test worker] g.c.s.r.i.p.r.PermissionRepositoryTest   : Started PermissionRepositoryTest in 3.067 seconds (process running for 7.407)
+2025-03-19T21:03:32.230Z  INFO 32680 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-19T21:03:32.504Z  INFO 32680 --- [    Test worker] g.c.s.r.i.p.r.PermissionRepositoryTest   : Started PermissionRepositoryTest in 2.695 seconds (process running for 6.626)
 Hibernate: 
     insert 
     into
@@ -172,7 +172,7 @@ Hibernate:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.13</a> at Mar 19, 2025, 8:25:02 PM</p>
+<a href="https://www.gradle.org">Gradle 8.13</a> at Mar 19, 2025, 9:03:34 PM</p>
 </div>
 </div>
 </body>
