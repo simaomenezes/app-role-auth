@@ -29,7 +29,7 @@ public class PermissionRepositoryTest extends AbstractIntegrationTest {
 
     @DisplayName("Given Permission Object when Save then Return Saved Permission")
     @Test
-    void testGivenPersmissionObject_whenSave_thenReturnPermissionObject(){
+    void testGivenPermissionObject_whenSave_thenReturnSavedPermissionObject(){
         //When / Act
         PermissionEntity permission = repository.save(permissionEntity);
         //Then / Assert
