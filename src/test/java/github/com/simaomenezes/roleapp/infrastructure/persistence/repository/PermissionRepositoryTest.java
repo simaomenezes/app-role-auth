@@ -1,7 +1,7 @@
 package github.com.simaomenezes.roleapp.infrastructure.persistence.repository;
 
 import github.com.simaomenezes.roleapp.infrastructure.integrationtests.AbstractIntegrationTest;
-import github.com.simaomenezes.roleapp.infrastructure.persistence.entity.PermissionEntity;
+import github.com.simaomenezes.roleapp.domain.entity.PermissionEntity;
 import github.com.simaomenezes.roleapp.infrastructure.persistence.repositoty.IPermissionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;

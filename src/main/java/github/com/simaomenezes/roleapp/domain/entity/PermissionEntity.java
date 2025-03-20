@@ -1,4 +1,4 @@
-package github.com.simaomenezes.roleapp.infrastructure.persistence.entity;
+package github.com.simaomenezes.roleapp.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
