@@ -10,4 +10,9 @@ import lombok.Setter;
 public class PermissionDTO {
     private Long id;
     private String name;
+
+    public PermissionDTO(String name){
+        this.name = name;
+    }
+
 }

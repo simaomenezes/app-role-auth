@@ -9,5 +9,5 @@ public interface PermissionRepository {
     PermissionEntity update(PermissionEntity permissionEntity);
     void deleteById(Long id);
     List<PermissionEntity> findAll();
-    Boolean existByName();
+    Boolean existByName(String name);
 }

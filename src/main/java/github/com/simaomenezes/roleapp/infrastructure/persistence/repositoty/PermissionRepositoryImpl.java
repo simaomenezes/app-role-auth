@@ -34,7 +34,7 @@ public class PermissionRepositoryImpl implements PermissionRepository {
     }
 
     @Override
-    public Boolean existByName() {
-        return null;
+    public Boolean existByName(String name) {
+        return repository.findByName(name).isPresent();
     }
 }
