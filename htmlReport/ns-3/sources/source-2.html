@@ -79,14 +79,16 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;
 &nbsp;import github.com.simaomenezes.roleapp.domain.repository.PermissionRepository;
+&nbsp;import lombok.AllArgsConstructor;
 &nbsp;import org.springframework.stereotype.Service;
 &nbsp;
+<b class="nc">&nbsp;@AllArgsConstructor</b>
 &nbsp;@Service
-<b class="nc">&nbsp;public class DeletePermissionUseCase {</b>
+&nbsp;public class DeletePermissionUseCase {
 &nbsp;    private PermissionRepository repository;
+<b class="nc">&nbsp;</b>
 &nbsp;    public void execute(Long id){
-&nbsp;
-<b class="nc">&nbsp;    }</b>
+&nbsp;    }
 &nbsp;}
 </code>
 </pre>
@@ -111,7 +113,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-03-24 20:44</div>
+    <div style="float:right;">generated on 2025-03-24 21:05</div>
 </div>
 </body>
 </html>
