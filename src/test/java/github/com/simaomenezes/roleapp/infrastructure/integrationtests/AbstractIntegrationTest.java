@@ -26,8 +26,8 @@ public class AbstractIntegrationTest {
 
     @AfterEach
     void cleanDataBase(){
-        String sqlPermission = "TRUNCATE TABLE permission RESTART IDENTITY CASCADE";
-        jdbcTemplate.execute(sqlPermission);
+       String sqlPermission = "TRUNCATE TABLE permission RESTART IDENTITY CASCADE";
+       jdbcTemplate.execute(sqlPermission);
     }
 
     @AfterAll

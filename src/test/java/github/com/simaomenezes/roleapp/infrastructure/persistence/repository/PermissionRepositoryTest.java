@@ -95,4 +95,16 @@ public class PermissionRepositoryTest extends AbstractIntegrationTest {
         assertNotNull(permissionEntityFound);
         assertTrue(permissionEntityFound.isPresent());
     }
+
+    @DisplayName("Given Id Permission when findById Permission then return Permission Object ")
+    @Test
+    void testGivenIdPermission_when_FindById_thenReturnPermissionObject(){
+        // Given / Arrange
+        PermissionEntity permissionSaved = repository.save(permissionEntity);
+        //When / Act
+        Optional<PermissionEntity> permissionEntityFound = repository.findById(permissionSaved.getId());
+        // Then / Assert
+        assertNotNull(permissionEntityFound);
+        assertTrue(permissionEntityFound.isPresent());
+    }
 }

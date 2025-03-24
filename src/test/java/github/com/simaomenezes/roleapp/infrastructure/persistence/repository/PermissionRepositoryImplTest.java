@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -58,4 +59,62 @@ public class PermissionRepositoryImplTest extends AbstractIntegrationTest {
         assertEquals("CREATE_SUPORT_USER", permissionUpdate.getName());
 
     }
+
+    @DisplayName("Given Permission Id when Delete Permission then do nothing")
+    @Test
+    void testGivenPermissionId_whenDeletePermission_thenDoNothing(){
+        // Given / Arrange
+        PermissionEntity permissionSaved = permissionRepositoryImpl.save(permissionEntity);
+        // When / Act
+        permissionRepositoryImpl.deleteById(permissionSaved.getId());
+        Optional<PermissionEntity> permissionEntityOptional = permissionRepositoryImpl.findById(permissionSaved.getId());
+
+        // Then / Assert
+        assertTrue(permissionEntityOptional.isEmpty());
+    }
+
+    @DisplayName("Given Permission List when list all then return list")
+    @Test
+    void testGivenPermissionList_whenListAll_thenReturnList(){
+        // Given / Arrange
+        permissionRepositoryImpl.save(permissionEntity);
+        PermissionEntity permissionEntity1 = new PermissionEntity("LIST_ADM");
+        PermissionEntity permissionEntity2 = new PermissionEntity("DELETE_ADM");
+        permissionRepositoryImpl.save(permissionEntity1);
+        permissionRepositoryImpl.save(permissionEntity2);
+
+        //When / Act
+        List<PermissionEntity> permissionEntityAllList = permissionRepositoryImpl.findAll();
+        // Then /Assert
+        assertEquals(3, permissionEntityAllList.size() );
+    }
+
+    @DisplayName("Given name Permission when Find By Name then Return Permisison Object")
+    @Test
+    void testGivenNamePermission_whenFindByName_thenReturnPermissionObject(){
+        //Given / Arrange
+        PermissionEntity permissionEntitySaved = permissionRepositoryImpl.save(permissionEntity);
+
+        // When / Act
+        Optional<PermissionEntity> permissionFound = permissionRepositoryImpl.findByName(permissionEntitySaved.getName());
+
+        // Then / Assert
+        assertTrue(permissionFound.isPresent());
+        assertEquals("CREATE_ADM", permissionFound.get().getName());
+    }
+
+    @DisplayName("Given id Permission when Find By Id then Return Permisison Object")
+    @Test
+    void testGivenIdPermission_whenFindById_thenReturnPermissionObject(){
+        //Given / Arrange
+        PermissionEntity permissionEntitySaved = permissionRepositoryImpl.save(permissionEntity);
+
+        // When / Act
+        Optional<PermissionEntity> permissionFound = permissionRepositoryImpl.findById(permissionEntitySaved.getId());
+
+        // Then / Assert
+        assertTrue(permissionFound.isPresent());
+    }
+
+
 }

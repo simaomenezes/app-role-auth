@@ -10,6 +10,6 @@ public interface PermissionRepository {
     PermissionEntity update(PermissionEntity permissionEntity);
     void deleteById(Long id);
     List<PermissionEntity> findAll();
-    Boolean existByName(String name);
     Optional<PermissionEntity> findByName(String name);
+    Optional<PermissionEntity> findById(Long id);
 }

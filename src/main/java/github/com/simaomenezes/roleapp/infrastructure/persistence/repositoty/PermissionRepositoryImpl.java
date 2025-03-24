@@ -37,12 +37,12 @@ public class PermissionRepositoryImpl implements PermissionRepository {
     }
 
     @Override
-    public Boolean existByName(String name) {
-        return repository.findByName(name).isPresent();
+    public Optional<PermissionEntity> findByName(String name) {
+        return repository.findByName(name);
     }
 
     @Override
-    public Optional<PermissionEntity> findByName(String name) {
-        return repository.findByName(name);
+    public Optional<PermissionEntity> findById(Long id) {
+        return repository.findById(id);
     }
 }
