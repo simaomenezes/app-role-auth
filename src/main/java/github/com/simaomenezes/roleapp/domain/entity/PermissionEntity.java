@@ -1,5 +1,6 @@
 package github.com.simaomenezes.roleapp.domain.entity;
 
+import github.com.simaomenezes.roleapp.domain.exceptions.AlreadyExistsException;
 import jakarta.persistence.*;
 
 @Entity
@@ -19,16 +20,19 @@ public class PermissionEntity {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void alreadyExistsName(Boolean nameAlready){
+        if (nameAlready) {
+            throw new AlreadyExistsException("Name already!.");
+        }
     }
 }

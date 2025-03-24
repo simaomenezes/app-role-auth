@@ -3,11 +3,14 @@ package github.com.simaomenezes.roleapp.infrastructure.persistence.repositoty;
 
 import github.com.simaomenezes.roleapp.domain.repository.PermissionRepository;
 import github.com.simaomenezes.roleapp.domain.entity.PermissionEntity;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
+@Transactional
 @AllArgsConstructor
 @Repository
 public class PermissionRepositoryImpl implements PermissionRepository {
@@ -36,5 +39,10 @@ public class PermissionRepositoryImpl implements PermissionRepository {
     @Override
     public Boolean existByName(String name) {
         return repository.findByName(name).isPresent();
+    }
+
+    @Override
+    public Optional<PermissionEntity> findByName(String name) {
+        return repository.findByName(name);
     }
 }

@@ -12,7 +12,6 @@ public class ModelMapperUtil {
     public static PermissionEntity convertPermissionDTOToPermissionEntity(PermissionDTO permissionDTO){
         return mapper.map(permissionDTO, PermissionEntity.class);
     }
-
     public static PermissionDTO convertPermissionEntityToPermissionDTO(PermissionEntity permissionEntity) {
         return mapper.map(permissionEntity, PermissionDTO.class);
     }

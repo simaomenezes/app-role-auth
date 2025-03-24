@@ -3,15 +3,20 @@ package github.com.simaomenezes.roleapp.application.usecases.permission;
 import github.com.simaomenezes.roleapp.application.dtos.PermissionDTO;
 import github.com.simaomenezes.roleapp.domain.entity.PermissionEntity;
 import github.com.simaomenezes.roleapp.domain.repository.PermissionRepository;
-import github.com.simaomenezes.roleapp.infrastructure.utils.ModelMapperUtil;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
+@Service
 public class CreatePermissionUseCase {
     private final PermissionRepository repository;
 
     public PermissionDTO execute(PermissionDTO permissionDTO) {
-        PermissionEntity permissionSaved = repository.save(ModelMapperUtil.convertPermissionDTOToPermissionEntity(permissionDTO));
-        return ModelMapperUtil.convertPermissionEntityToPermissionDTO(permissionSaved);
+
+        boolean value = repository.findByName(permissionDTO.getName()).isPresent();
+        PermissionEntity object = new PermissionEntity(permissionDTO.getName());
+        object.alreadyExistsName(value);
+        PermissionEntity permissionSaved = repository.save(object);
+        return new PermissionDTO(permissionSaved.getId(), permissionSaved.getName());
     }
 }
