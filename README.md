@@ -1,4 +1,13 @@
 # app-role-auth
+
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/t/simaomenezes/app-role-auth">
+<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/simaomenezes/app-role-auth/gradle.yml">
+<img alt="GitHub branch check runs" src="https://img.shields.io/github/check-runs/simaomenezes/app-role-auth/main">
+
+
+
+
+
 app-role-auth / Role-Based Access Control - RBAC
 
 📌 Teste de Repository - (Permission)
