@@ -17,6 +17,8 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
+      - name: Run test
+        run: ./gradlew test
       - name: Build with Gradle Wrapper
         run: ./gradlew build
   dependecy-submissions:
