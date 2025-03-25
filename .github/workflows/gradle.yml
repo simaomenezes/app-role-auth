@@ -21,4 +21,4 @@ jobs:
         run: chmod +x ./gradlew build
 
       - name: Run check
-        run: chmod +x ./gradlew -b ci.gradle package
+        run: -b ci.gradle package
