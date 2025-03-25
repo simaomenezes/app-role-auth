@@ -19,3 +19,6 @@ jobs:
 
       - name: Run build
         run: chmod +x ./gradlew build
+
+      - name: Run check
+        run: chmod +x ./gradlew check
