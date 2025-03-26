@@ -34,8 +34,8 @@ out/
 /.nb-gradle/
 
 ### VS Code ###
-.vscode/
+.vscode/*
 /app.log.2025-03-14.0.gz
 /app.log
-/.gradle/
-/build/
+/.gradle/*
+/build/*

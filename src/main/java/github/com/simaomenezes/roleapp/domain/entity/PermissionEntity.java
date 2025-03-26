@@ -1,6 +1,7 @@
 package github.com.simaomenezes.roleapp.domain.entity;
 
 import github.com.simaomenezes.roleapp.domain.exceptions.AlreadyExistsException;
+import github.com.simaomenezes.roleapp.domain.exceptions.NotFoundException;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,11 @@ public class PermissionEntity {
 
     @Column(name = "name")
     private String name;
+
+    public PermissionEntity(String name, Long id){
+        this.name = name;
+        this.id = id;
+    }
 
     public PermissionEntity(String name){
         this.name = name;
