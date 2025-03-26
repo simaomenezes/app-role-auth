@@ -18,6 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,6 +32,8 @@ public class PermissionUseCaseTest {
     private DeletePermissionUseCase deletePermissionUseCase;
     @InjectMocks
     private UpdatePermissionUseCase updatePermissionUseCase;
+    @InjectMocks
+    private ListAllPermissionUseCase listAllPermissionUseCase;
 
     private PermissionDTO permissionDTO;
     private PermissionEntity permissionEntity;
@@ -97,6 +100,20 @@ public class PermissionUseCaseTest {
         assertEquals("CREATE_USER", permissionDTOUpdated.getName());
         assertEquals(1L, permissionDTOUpdated.getId());
         then(repository).should(times(1)).update(any(PermissionEntity.class));
+    }
+
+    @DisplayName("Given Permission List when findAll then return Permission List ")
+    @Test
+    void testGivenPermissionList_whenFindAll_thenReturnPermissionList(){
+        // Given / Arrange
+        PermissionEntity pe1 = new PermissionEntity("CREATE_SERVICE", 1L);
+        PermissionEntity pe2 = new PermissionEntity("CREATE_SERVICE", 2L);
+        given(repository.findAll()).willReturn(List.of(pe1, pe2));
+        // When / Act
+        List<PermissionDTO> permissionDTOList = listAllPermissionUseCase.execute();
+        // Then / assert
+        assertNotNull(permissionDTOList);
+        assertFalse(permissionDTOList.isEmpty());
     }
 
 
