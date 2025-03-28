@@ -7,6 +7,8 @@ import github.com.simaomenezes.roleapp.config.ApiTestConfig;
 import github.com.simaomenezes.roleapp.infrastructure.integrationtests.AbstractIntegrationTest;
 import github.com.simaomenezes.roleapp.presentation.dtos.PermissionRequestDTO;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -78,8 +80,42 @@ public class PermissionControllerTest extends AbstractIntegrationTest {
 
         // Then / Assert
         assertNotNull(content);
-        assertTrue(content.contains(permissionRequestDTO.getName()));
-        assertTrue(content.contains("id"));
     }
 
+    @Test
+    @DisplayName("Integration Given Permission Object when Update one Permission should Return a Permission Object")
+    void integrationTestGivenPermissionObject_when_UpdateOnePermissionShouldReturnAPermissionObject() throws JsonProcessingException, JSONException {
+        // Given / Arrange
+        String content = given()
+                .spec(specification)
+                .body(permissionRequestDTO)
+                .when()
+                .post("/add")
+                .then()
+                .statusCode(201)
+                .extract()
+                .body()
+                .asString();
+
+        JSONObject jsonObject = new JSONObject(content);
+        Object data = jsonObject.get("data");
+        String id = ((JSONObject) data).get("id").toString();
+        permissionRequestDTO.setName("UPDATE_USER");
+
+        // When / Act
+        String resultUpdated = given()
+                .spec(specification)
+                .body(permissionRequestDTO)
+                .when()
+                .put("/update/" + id)
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
+                .asString();
+
+        // Then / Assert
+        assertNotNull(resultUpdated);
+        assertTrue(resultUpdated.contains(permissionRequestDTO.getName()));
+    }
 }

@@ -23,6 +23,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 public class PermissionController {
     private final CreatePermissionUseCase createPermissionUseCase;
     private final ListAllPermissionUseCase listAllPermissionUseCase;
+    private final UpdatePermissionUseCase updatePermissionUseCase;
 
     @PostMapping("/add")
     public ResponseEntity<ApiResponse> create(@RequestBody PermissionRequestDTO permissionRequestDTO){
@@ -40,6 +41,17 @@ public class PermissionController {
         try {
             List<PermissionDTO> permissionLisAll = listAllPermissionUseCase.execute();
             return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("List all permission with success!", permissionLisAll));
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
+        }
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ApiResponse> update(@PathVariable Long id, @RequestBody PermissionRequestDTO permissionRequestDTO){
+        final PermissionDTO permissionDTO = new PermissionDTO(id, permissionRequestDTO.getName());
+        try {
+            PermissionDTO result = updatePermissionUseCase.execute(permissionDTO);
+            return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Update permission with success!", result));
         } catch (ResourceNotFoundException e) {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }

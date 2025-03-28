@@ -1,0 +1,126 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > UpdatePermissionUseCase</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">github.com.simaomenezes.roleapp.application.usecases.permission</a>
+</div>
+
+<h1>Coverage Summary for Class: UpdatePermissionUseCase (github.com.simaomenezes.roleapp.application.usecases.permission)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UpdatePermissionUseCase</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package github.com.simaomenezes.roleapp.application.usecases.permission;
+&nbsp;
+&nbsp;import github.com.simaomenezes.roleapp.application.dtos.PermissionDTO;
+&nbsp;import github.com.simaomenezes.roleapp.domain.entity.PermissionEntity;
+&nbsp;import github.com.simaomenezes.roleapp.domain.repository.PermissionRepository;
+&nbsp;import lombok.AllArgsConstructor;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@AllArgsConstructor
+&nbsp;@Service
+&nbsp;public class UpdatePermissionUseCase {
+&nbsp;    private PermissionRepository repository;
+&nbsp;    public PermissionDTO execute(PermissionDTO permissionDTO){
+<b class="fc">&nbsp;        Optional&lt;PermissionEntity&gt; permissionFound = repository.findByName(permissionDTO.getName());</b>
+<b class="fc">&nbsp;        PermissionEntity permissionEntity = new PermissionEntity(permissionDTO.getName(), permissionDTO.getId());</b>
+<b class="fc">&nbsp;        permissionEntity.alreadyExistsName(permissionFound.isPresent());</b>
+<b class="fc">&nbsp;        PermissionEntity permissionEntityUpdated = repository.update(permissionEntity);</b>
+<b class="fc">&nbsp;        return new PermissionDTO(permissionEntityUpdated.getId(), permissionEntityUpdated.getName());</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-03-28 20:36</div>
+</div>
+</body>
+</html>
