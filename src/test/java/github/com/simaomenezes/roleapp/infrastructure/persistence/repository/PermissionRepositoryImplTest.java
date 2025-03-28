@@ -89,7 +89,7 @@ public class PermissionRepositoryImplTest extends AbstractIntegrationTest {
         assertEquals(3, permissionEntityAllList.size() );
     }
 
-    @DisplayName("Given name Permission when Find By Name then Return Permisison Object")
+    @DisplayName("Given name Permission when Find By Name then Return Permission Object")
     @Test
     void testGivenNamePermission_whenFindByName_thenReturnPermissionObject(){
         //Given / Arrange
@@ -103,7 +103,7 @@ public class PermissionRepositoryImplTest extends AbstractIntegrationTest {
         assertEquals("CREATE_ADM", permissionFound.get().getName());
     }
 
-    @DisplayName("Given id Permission when Find By Id then Return Permisison Object")
+    @DisplayName("Given id Permission when Find By Id then Return Permission Object")
     @Test
     void testGivenIdPermission_whenFindById_thenReturnPermissionObject(){
         //Given / Arrange
