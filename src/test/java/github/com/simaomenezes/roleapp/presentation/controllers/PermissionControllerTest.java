@@ -31,7 +31,7 @@ public class PermissionControllerTest extends AbstractIntegrationTest {
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         specification = ApiTestConfig.requestSpec("permissions");
         permissionRequestDTO = new PermissionRequestDTO();
-        permissionRequestDTO.setName("CREATE_USER");
+        permissionRequestDTO.setName("LIST_USER");
     }
 
     @Test
@@ -56,9 +56,11 @@ public class PermissionControllerTest extends AbstractIntegrationTest {
     @DisplayName("Integration Given Permission Object when List all Permission should Return a Permission Object")
     void integrationTestGivenPermissionObject_when_ListAllPermissionShouldReturnAPermissionObject() throws JsonProcessingException {
         // Given / Arrange
+        PermissionRequestDTO requestDTO = new PermissionRequestDTO();
+        requestDTO.setName("DELETE_USER");
             given()
                 .spec(specification)
-                .body(permissionRequestDTO)
+                .body(requestDTO)
                 .when()
                 .post("/add")
                 .then()
