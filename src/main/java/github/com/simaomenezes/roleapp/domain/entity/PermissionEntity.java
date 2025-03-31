@@ -4,17 +4,21 @@ import github.com.simaomenezes.roleapp.domain.exceptions.AlreadyExistsException;
 import github.com.simaomenezes.roleapp.domain.exceptions.NotFoundException;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "permission")
 public class PermissionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name")
+    @Column(name = "name", unique = true, nullable = false)
     private String name;
+    @ManyToMany(mappedBy = "permissions")
+    private Set<RoleEntity> roles = new HashSet<>();
 
     public PermissionEntity(){}
-
     public PermissionEntity(String name, Long id){
         this.name = name;
         this.id = id;
@@ -36,6 +40,14 @@ public class PermissionEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Set<RoleEntity> getRoles() {
+        return roles;
+    }
+    public void setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
+    }
+
 
     public void alreadyExistsName(Boolean nameAlready){
         if (nameAlready) {
