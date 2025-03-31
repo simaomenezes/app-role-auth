@@ -10,6 +10,8 @@
 
 📌 Controller Test - (Permission)
 <p>TEST-1 Integration Given Permission Object when Create one Permission should Return a Permission.  ( ✅ )</p>
+<p>TEST-2 Integration Given Permission Object when List all Permission should Return a Permission Object.  ( ✅ )</p>
+<p>TEST-3 Integration Given Permission Object when Update one Permission should Return a Permission Object.  ( ✅ )</p>
 
 
 📌 UseCase Test - (Permission)
