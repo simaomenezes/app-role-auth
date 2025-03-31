@@ -3,6 +3,7 @@ package github.com.simaomenezes.roleapp.application.usecases.permission;
 import github.com.simaomenezes.roleapp.application.dtos.PermissionDTO;
 import github.com.simaomenezes.roleapp.domain.entity.PermissionEntity;
 import github.com.simaomenezes.roleapp.domain.repository.PermissionRepository;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 public class CreatePermissionUseCase {
     private final PermissionRepository repository;
 
+    @Transactional
     public PermissionDTO execute(PermissionDTO permissionDTO) {
 
         boolean value = repository.findByName(permissionDTO.getName()).isPresent();
