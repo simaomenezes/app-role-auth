@@ -1,0 +1,16 @@
+package github.com.simaomenezes.roleapp.domain.repository;
+
+import github.com.simaomenezes.roleapp.domain.entity.PermissionEntity;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface AbstractRepository {
+
+    Object save(Object object);
+    Object update(Object object);
+    void deleteById(Long id);
+    List<Object> findAll();
+    Optional<Object> findByName(String name);
+    Optional<Object> findById(Long id);
+}

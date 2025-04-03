@@ -1,6 +1,5 @@
 package github.com.simaomenezes.roleapp.domain;
 
-import github.com.simaomenezes.roleapp.application.dtos.PermissionDTO;
 import github.com.simaomenezes.roleapp.domain.entity.PermissionEntity;
 import github.com.simaomenezes.roleapp.domain.exceptions.AlreadyExistsException;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +15,7 @@ public class PermissionTest {
 
     @BeforeEach
     void setup(){
-        permissionEntity = new PermissionEntity("CREATE_USER");
+        permissionEntity = new PermissionEntity();
     }
 
     @DisplayName("Should an exception when name exist")

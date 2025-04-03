@@ -3,6 +3,7 @@ package github.com.simaomenezes.roleapp.domain.entity;
 import github.com.simaomenezes.roleapp.domain.exceptions.AlreadyExistsException;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
@@ -58,10 +59,9 @@ public class RoleEntity {
         this.permissions = permissions;
     }
 
-    public Boolean alreadyExistsName(Boolean value) {
+    public void alreadyExistsName(Boolean value) {
         if (value) {
             throw new AlreadyExistsException("Name already!");
         }
-        return value;
     }
 }
