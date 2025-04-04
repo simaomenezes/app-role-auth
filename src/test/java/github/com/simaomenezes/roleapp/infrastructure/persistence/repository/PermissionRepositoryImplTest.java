@@ -16,8 +16,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DataJpaTest(showSql = true)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class PermissionRepositoryImplTest extends AbstractIntegrationTest {
 
     @Autowired

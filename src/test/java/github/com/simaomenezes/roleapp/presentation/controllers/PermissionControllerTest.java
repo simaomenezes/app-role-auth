@@ -18,7 +18,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class PermissionControllerTest extends AbstractIntegrationTest {
     private static RequestSpecification specification;
     private static ObjectMapper mapper;
