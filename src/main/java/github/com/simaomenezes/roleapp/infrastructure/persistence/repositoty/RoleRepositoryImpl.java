@@ -18,7 +18,7 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Override
     public RoleEntity save(RoleEntity roleEntity) {
-        return null;
+        return repository.save(roleEntity);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Override
     public void deleteById(Long id) {
-
+        repository.deleteById(id);
     }
 
     @Override
@@ -43,6 +43,6 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Override
     public Optional<RoleEntity> findById(Long id) {
-        return Optional.empty();
+        return repository.findById(id);
     }
 }
