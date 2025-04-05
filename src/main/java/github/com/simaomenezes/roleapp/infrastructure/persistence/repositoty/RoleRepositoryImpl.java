@@ -23,7 +23,7 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Override
     public RoleEntity update(RoleEntity roleEntity) {
-        return null;
+        return repository.save(roleEntity);
     }
 
     @Override
@@ -33,12 +33,12 @@ public class RoleRepositoryImpl implements RoleRepository {
 
     @Override
     public List<RoleEntity> findAll() {
-        return List.of();
+        return repository.findAll();
     }
 
     @Override
     public Optional<RoleEntity> findByName(String name) {
-        return Optional.empty();
+        return repository.findByName(name);
     }
 
     @Override

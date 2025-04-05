@@ -8,6 +8,26 @@
 
 <h2>app-role-auth / Role-Based Access Control - RBAC</h2>
 
+
+
+
+📌 Repository Test - (Role)
+<p>TEST-1: Given a role, when save, then return role saved. ( ✅ )</p>
+<p>TEST-2: Given a role, when delete by id, then do nothing. ( ✅ ) *</p>
+<p>TEST-3: Given a role List when list all then return list. ( ✅ ) *</p>
+<p>TEST-4: Given name role when find by name then return role object. ( ✅ )</p>
+<p>TEST-5: Given id role when find by id then return role object. ( ✅ )</p>
+<p>TEST-6: Given a role when update then return role updated. ( ✅ )</p>
+
+📌 Domain Test - (Role)
+<p>TEST-1: Should an exception when name exist. ( ✅ )</p>
+<p>TEST-2: Not Should an exception when name don't already. ( ✅ ) *</p>
+
+
+
+
+
+
 📌 Controller Test - (Permission)
 <p>TEST-1 Integration Given Permission Object when Create one Permission should Return a Permission.  ( ✅ )</p>
 <p>TEST-2 Integration Given Permission Object when List all Permission should Return a Permission Object.  ( ✅ )</p>
