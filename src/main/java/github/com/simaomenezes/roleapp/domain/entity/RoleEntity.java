@@ -2,12 +2,10 @@ package github.com.simaomenezes.roleapp.domain.entity;
 
 import github.com.simaomenezes.roleapp.domain.exceptions.AlreadyExistsException;
 import jakarta.persistence.*;
-
-import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name = "role")
+@Table(name = "roles")
 public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
