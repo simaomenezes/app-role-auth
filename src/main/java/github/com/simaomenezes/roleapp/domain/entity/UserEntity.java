@@ -1,5 +1,6 @@
 package github.com.simaomenezes.roleapp.domain.entity;
 
+import github.com.simaomenezes.roleapp.domain.exceptions.AlreadyExistsException;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -126,6 +127,18 @@ public class UserEntity {
 
     public void setRoles(Set<RoleEntity> roles) {
         this.roles = roles;
+    }
+
+    public void alreadyExistsEmail(Boolean value) {
+        if (value) {
+            throw new AlreadyExistsException("Email already!.");
+        }
+    }
+
+    public void alreadyExistsUsername(Boolean value) {
+        if (value) {
+            throw new AlreadyExistsException("Username already!.");
+        }
     }
 }
 

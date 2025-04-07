@@ -39,6 +39,11 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public Optional<UserEntity> findByEmail(String email) {
+        return Optional.empty();
+    }
+
+    @Override
     public Optional<UserEntity> findById(Long id) {
         return Optional.empty();
     }
