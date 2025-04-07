@@ -15,22 +15,11 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
-    private String username;
+    private String name;
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
-    private Boolean enabled = true;
-    @Column(nullable = false)
-    private Boolean accountNonLocked = true;
-    @Column(nullable = false)
-    private Boolean accountNonExpired = true;
-    @Column(nullable = false)
-    private Boolean credentialsNonExpired = true;
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -40,6 +29,21 @@ public class UserEntity {
     )
     private Set<RoleEntity> roles = new HashSet<>();
 
+    public UserEntity(){}
+
+    public UserEntity(String name, String email, String password, Set<RoleEntity> roles) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    public UserEntity(Long id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
     public Long getId() {
         return id;
@@ -49,12 +53,12 @@ public class UserEntity {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -71,54 +75,6 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public Boolean getAccountNonLocked() {
-        return accountNonLocked;
-    }
-
-    public void setAccountNonLocked(Boolean accountNonLocked) {
-        this.accountNonLocked = accountNonLocked;
-    }
-
-    public Boolean getAccountNonExpired() {
-        return accountNonExpired;
-    }
-
-    public void setAccountNonExpired(Boolean accountNonExpired) {
-        this.accountNonExpired = accountNonExpired;
-    }
-
-    public Boolean getCredentialsNonExpired() {
-        return credentialsNonExpired;
-    }
-
-    public void setCredentialsNonExpired(Boolean credentialsNonExpired) {
-        this.credentialsNonExpired = credentialsNonExpired;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public Set<RoleEntity> getRoles() {

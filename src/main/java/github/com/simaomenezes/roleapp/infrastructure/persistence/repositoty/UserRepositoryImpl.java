@@ -13,13 +13,15 @@ import java.util.Optional;
 @AllArgsConstructor
 @Repository
 public class UserRepositoryImpl implements UserRepository {
+    private IUserRepository repository;
+
     @Override
-    public UserEntity save(UserEntity object) {
-        return null;
+    public UserEntity save(UserEntity user) {
+        return repository.save(user);
     }
 
     @Override
-    public UserEntity update(UserEntity object) {
+    public UserEntity update(UserEntity user) {
         return null;
     }
 
