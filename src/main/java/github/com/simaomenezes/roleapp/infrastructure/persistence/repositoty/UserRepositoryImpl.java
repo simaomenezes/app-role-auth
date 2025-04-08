@@ -22,12 +22,12 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public UserEntity update(UserEntity user) {
-        return null;
+        return repository.save(user);
     }
 
     @Override
     public void deleteById(Long id) {
-
+        repository.deleteById(id);
     }
 
     @Override
@@ -47,6 +47,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Optional<UserEntity> findById(Long id) {
-        return Optional.empty();
+        return repository.findById(id);
     }
 }

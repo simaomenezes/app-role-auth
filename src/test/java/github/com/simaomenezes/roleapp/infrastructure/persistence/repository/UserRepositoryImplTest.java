@@ -10,10 +10,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UserRepositoryImplTest extends AbstractIntegrationTest {
 
@@ -64,6 +64,27 @@ public class UserRepositoryImplTest extends AbstractIntegrationTest {
         assertTrue(userSaved.getId() > 0);
     }
 
+    @DisplayName("Given a User when update then return User updated")
+    @Test
+    void testGivenUser_whenUserUpdate_thenReturnUserUpdated(){
+        // Given / Arrange
+        UserEntity userSaved = userRepositoryImpl.save(user);
+        userSaved.setName("userUpdate");
+        // When / Act
+        UserEntity userUpdated = userRepositoryImpl.update(userSaved);
+        // Then / Assert
+        assertEquals("userUpdate", userUpdated.getName());
+    }
 
-
+    @DisplayName("Given a User id when delete it then do nothing")
+    @Test
+    void testGivenUserId_whenDeleteById_thenDoNothing(){
+        // Given / Arrange
+        UserEntity userSaved = userRepositoryImpl.save(user);
+        Optional<UserEntity> userFound = userRepositoryImpl.findById(userSaved.getId());
+        // When / Act
+        userRepositoryImpl.deleteById(userFound.get().getId());
+        // Then / Assert
+        assertTrue(userRepositoryImpl.findById(userSaved.getId()).isEmpty());
+    }
 }
