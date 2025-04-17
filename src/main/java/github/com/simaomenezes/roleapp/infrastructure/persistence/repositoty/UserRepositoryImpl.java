@@ -32,7 +32,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<UserEntity> findAll() {
-        return List.of();
+        return repository.findAll();
     }
 
     @Override

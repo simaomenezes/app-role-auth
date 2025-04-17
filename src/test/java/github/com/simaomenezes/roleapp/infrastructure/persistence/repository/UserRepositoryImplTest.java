@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -86,5 +87,34 @@ public class UserRepositoryImplTest extends AbstractIntegrationTest {
         userRepositoryImpl.deleteById(userFound.get().getId());
         // Then / Assert
         assertTrue(userRepositoryImpl.findById(userSaved.getId()).isEmpty());
+    }
+
+    @DisplayName("Given a list User when  List all then return the list ")
+    @Test
+    void testGivenListUserWhenListAllThenReturnList(){
+        // Given / Arrange
+        userRepositoryImpl.save(user);
+        // PermissionEntity
+        PermissionEntity permissions1 = new PermissionEntity("ADM Tec");
+        permissionRepositoryImpl.save(permissions1);
+
+        // RoleEntity
+        RoleEntity role1 = new RoleEntity(
+                "RoleXX", Set.of(permissions1)
+        );
+        roleRepositoryImpl.save(role1);
+
+        // UserEntity
+        UserEntity user1 = new UserEntity(
+                "UserHH", "userhh@gmail.com", "123455", Set.of(role1)
+        );
+        userRepositoryImpl.save(user1);
+
+        // When / Act
+        List<UserEntity> findAllOK = userRepositoryImpl.findAll();
+
+        // Then / Assert
+        assertTrue(!findAllOK.isEmpty());
+        assertEquals(2, findAllOK.size());
     }
 }
