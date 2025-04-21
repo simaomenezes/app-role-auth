@@ -117,4 +117,28 @@ public class UserRepositoryImplTest extends AbstractIntegrationTest {
         assertTrue(!findAllOK.isEmpty());
         assertEquals(2, findAllOK.size());
     }
+
+    @DisplayName("Given a name User when find by name then return User")
+    @Test
+    void testGivenNameUserWhenFindByNameThenReturnUser(){
+        // Given / Arrange
+        userRepositoryImpl.save(user);
+        // When / Act
+        Optional<UserEntity> userfound = userRepositoryImpl.findByName(user.getName());
+        // Then / Assert
+        assertNotNull(user);
+        assertTrue(userfound.isPresent());
+    }
+
+    @DisplayName("Given a email User when find by name then return User")
+    @Test
+    void testGivenEmailUserWhenFindByNameThenReturnUser(){
+        // Given / Arrange
+        userRepositoryImpl.save(user);
+        // When / Act
+        Optional<UserEntity> userfound = userRepositoryImpl.findByEmail(user.getEmail());
+        // Then / Assert
+        assertNotNull(user);
+        assertTrue(userfound.isPresent());
+    }
 }
