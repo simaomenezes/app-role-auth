@@ -15,9 +15,6 @@ import static org.mockito.BDDMockito.*;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -115,14 +112,5 @@ public class PermissionUseCaseTest {
         assertNotNull(permissionDTOList);
         assertFalse(permissionDTOList.isEmpty());
     }
-
-
-
-
-
-
-
-
-
 }
 

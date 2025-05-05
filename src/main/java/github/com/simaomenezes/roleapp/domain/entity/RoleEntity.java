@@ -22,6 +22,8 @@ public class RoleEntity {
 
     public RoleEntity() {}
 
+    public RoleEntity(String name) {this.name = name;}
+
     public RoleEntity(String name, Set<PermissionEntity> permissions) {
         this.name = name;
         this.permissions = permissions;
