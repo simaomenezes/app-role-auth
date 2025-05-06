@@ -17,6 +17,10 @@ public class RoleDTO {
     private String name;
     private Set<PermissionDTO> permissions;
 
+    public RoleDTO(Long id, String name){
+        this.id = id;
+        this.name = name;
+    }
     public RoleDTO(String name){
         this.name = name;
     }

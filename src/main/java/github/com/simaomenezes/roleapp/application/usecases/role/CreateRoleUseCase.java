@@ -19,8 +19,7 @@ public class CreateRoleUseCase {
         roleEntity.alreadyExistsName(dtoFound);
         roleEntity.setName(roleDTO.getName());
         RoleEntity roleEntitySaved = repository.save(roleEntity);
-        roleDTO.setId(roleEntitySaved.getId());
-        roleDTO.setName(roleEntitySaved.getName());
+        roleDTO = new RoleDTO(roleEntitySaved.getId(), roleEntitySaved.getName());
         return roleDTO;
     }
 }
